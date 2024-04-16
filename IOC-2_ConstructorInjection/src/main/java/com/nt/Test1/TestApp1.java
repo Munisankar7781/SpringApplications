@@ -1,10 +1,10 @@
-package com.nt.test;
+package com.nt.Test1;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ms.target.WishMessagegenerator;
 
-public class TestApp 
+public class TestApp1
 {
 	public static void main(String[]args)
 	{
