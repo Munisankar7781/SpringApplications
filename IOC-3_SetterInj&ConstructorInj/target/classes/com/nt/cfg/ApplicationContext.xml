@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+   
+   <!-- Dependent Class -->
+   <bean id="dt" class="java.util.Date"> </bean>
+   
+   
+   <bean id="dt1" class="java.util.Date">
+   <property name="year" value="120"></property>  <!-- Adds 1900 to it -->
+   <property name="date" value="7"></property><!-- 0 to 30 -->
+   <property name="month" value="4"></property> <!-- 0 to 11 -->
+   </bean>
+   
+   <!-- Target Class -->
+   <bean id="wmg" class="com.ms.target.WishMessagegenerator">
+   <property name="date" ref="dt1"></property>
+   <constructor-arg name="date" ref="dt"></constructor-arg>
+   </bean>
+   
+   
+</beans>
