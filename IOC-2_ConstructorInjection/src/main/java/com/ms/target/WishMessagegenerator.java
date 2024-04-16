@@ -6,8 +6,10 @@ public class WishMessagegenerator
 {
 	private Date date;
 	
+	private String Message;
+	
 	// using constructor[to perform Dependency Injection]
-	public WishMessagegenerator(Date date) {
+	public WishMessagegenerator(Date date,String Message) {
 		System.out.println("WishMessageGenerator::1-param constructor exceuted");
 		this.date=date;
 	}

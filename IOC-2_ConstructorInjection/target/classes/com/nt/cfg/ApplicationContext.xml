@@ -13,6 +13,7 @@
    <!-- Target Class -->
    <bean id="wmg" class="com.ms.target.WishMessagegenerator">
    <constructor-arg name="date" ref="dt"></constructor-arg>
+   <constructor-arg name="message" value="mmm"></constructor-arg>
    
    </bean>
    
