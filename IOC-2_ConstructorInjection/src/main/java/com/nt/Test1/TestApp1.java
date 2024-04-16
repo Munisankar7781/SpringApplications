@@ -10,8 +10,6 @@ public class TestApp1
 	{
 		//create Ioc container
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("com/nt/cfg/ApplicationContext.xml" );
-		
-
 		//Get Target Bean class obj from ioc container
 		WishMessagegenerator wm=ctx.getBean("wmg",WishMessagegenerator.class);
 		//invoke Business Method
