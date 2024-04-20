@@ -9,7 +9,7 @@ public class Food {
 	@Override
 	public String toString() {
 	
-		return "Food For Energy";
+		return "Food For The Energy";
 	}
 
 }

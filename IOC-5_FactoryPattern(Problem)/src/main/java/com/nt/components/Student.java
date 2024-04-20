@@ -14,7 +14,7 @@ public class Student extends Person {
 	@Override
 	public void work() {
 		System.out.println("Student.work()");
-		System.out.println("Student is studying B.Tech(Cs) and taking"+"....."+food);
+		System.out.println("Student is studying B.Tech(Cs) and taking"+"......."+food);
 
 	}
 
