@@ -1,5 +1,4 @@
 package com.ms.Test;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ms.beans.A;
