@@ -32,7 +32,7 @@ public final class CustomerServiceMangImpl implements IcustomerMgmtService{
 		bo.setSimpleintrest(simpleintrest);
 		//use DAO service
 		int count=dao.insert(bo);
-		return count >= 1?"customer registered sucessfully"+" ...> "+" Simple Intrest="+simpleintrest:"customer registrtion failed";
+		return count >= 1?"customer registered sucessfully"+" ...> "+" Simple Intrest::"+simpleintrest:"customer registrtion failed";
 
 	}
 }
