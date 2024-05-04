@@ -34,7 +34,7 @@
    <!-- Service cfg -->
    <bean id="service" class="com.nt.service.CustomerServiceMangImpl">
    <!-- <constructor-arg ref="Custmysqldao"></constructor-arg> -->
-   <constructor-arg ref="Custmysqldao"></constructor-arg>
+   <constructor-arg ref="Custoracledao"></constructor-arg>
    </bean>
    
    <!-- Controller cfg -->
