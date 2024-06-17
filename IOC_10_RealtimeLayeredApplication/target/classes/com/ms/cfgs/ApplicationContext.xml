@@ -30,13 +30,16 @@
 	</bean>
 
 	<bean id="Custoracledao" class="com.nt.dao.CustDaoOracleImpl">
+	<property name="osname" value ="${os.Version}"></property>
+	<property name="username" value="${user.name}"></property>
+	<property name="pathdata" value="${Path}"></property>
 		<constructor-arg ref="DmdsOracle"></constructor-arg>
 	</bean>
 
 	<!-- Service cfg -->
 	<bean id="service" class="com.nt.service.CustomerServiceMangImpl">
 		<!-- <constructor-arg ref="Custmysqldao"></constructor-arg> -->
-		<constructor-arg ref="Custmysqldao"></constructor-arg>
+		<constructor-arg ref="Custoracledao"></constructor-arg>
 	</bean>
 
 	<!-- Controller cfg -->

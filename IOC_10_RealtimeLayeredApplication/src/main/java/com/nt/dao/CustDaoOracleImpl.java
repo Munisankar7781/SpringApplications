@@ -11,6 +11,29 @@ public final class CustDaoOracleImpl implements ICustomerDao {
 
 	private static final String sqlquery = "INSERT INTO CUSTOMERS_REALTIMES VALUES(CUSTOMER_SEQUENCE.NEXTVAL,?,?,?,?,?,?)";
 	private DataSource datasource;
+	private String osname;
+	private String username;
+	private String pathdata;
+
+	public String getOsname() {
+		return osname;
+	}
+
+	public void setOsname(String osname) {
+		this.osname = osname;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public void setPathdata(String pathdata) {
+		this.pathdata = pathdata;
+	}
 
 	public CustDaoOracleImpl(DataSource datasource) {
 		System.out.println("custDAoOracleImpl:1-param constructor created");
@@ -19,6 +42,7 @@ public final class CustDaoOracleImpl implements ICustomerDao {
 
 	@Override
 	public int insert(CustomerBo bo) throws Exception {
+		System.out.println(username+"...."+osname+"..."+pathdata);
 
 		int count = 0;
 		try (Connection con = datasource.getConnection(); PreparedStatement ps = con.prepareStatement(sqlquery)) {
