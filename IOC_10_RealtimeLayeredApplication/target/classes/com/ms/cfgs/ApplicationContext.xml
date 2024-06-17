@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns = "http://www.springframework.org/schema/beans"
-   xmlns:context = "http://www.springframework.org/schema/context"
-   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
    http://www.springframework.org/schema/context 
    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-   
-   <!-- DataSource Cfg -->
-   <bean id="DmdsOracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-   <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-   <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
-   <property name="username" value="system"></property>
-   <property name="password" value="system"></property>
-   </bean>
-  
-   <bean id="DmdsMysql" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-   <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-   <property name="url" value="jdbc:mysql:///spring_basics1"></property>
-   <property name="username" value="root"></property>
-   <property name="password" value="root"></property>
-   </bean>
-   
-   <!-- DAo Cfg -->   
-    <bean id="Custmysqldao" class="com.nt.dao.CustDaoMysqlImpl">
-   <constructor-arg ref="DmdsMysql"></constructor-arg>
-   </bean>
-   
-   <bean id="Custoracledao" class="com.nt.dao.CustDaoOracleImpl">
-   <constructor-arg ref="DmdsOracle"></constructor-arg>
-   </bean> 
-  
-   <!-- Service cfg -->
-   <bean id="service" class="com.nt.service.CustomerServiceMangImpl">
-   <!-- <constructor-arg ref="Custmysqldao"></constructor-arg> -->
-   <constructor-arg ref="Custoracledao"></constructor-arg>
-   </bean>
-   
-   <!-- Controller cfg -->
-   <bean id="controller" class="com.nt.controller.MainController">
-   <constructor-arg ref="service"></constructor-arg>
-   </bean>
-   
+
+	<!-- DataSource Cfg -->
+	<bean id="DmdsOracle"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+
+	<bean id="DmdsMysql"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.sdriver}"></property>
+		<property name="url" value="${jdbc.surl}"></property>
+		<property name="username" value="${jdbc.suser}"></property>
+		<property name="password" value="${jdbc.spassword}"></property>
+	</bean>
+
+	<!-- DAo Cfg -->
+	<bean id="Custmysqldao" class="com.nt.dao.CustDaoMysqlImpl">
+		<constructor-arg ref="DmdsMysql"></constructor-arg>
+	</bean>
+
+	<bean id="Custoracledao" class="com.nt.dao.CustDaoOracleImpl">
+		<constructor-arg ref="DmdsOracle"></constructor-arg>
+	</bean>
+
+	<!-- Service cfg -->
+	<bean id="service" class="com.nt.service.CustomerServiceMangImpl">
+		<!-- <constructor-arg ref="Custmysqldao"></constructor-arg> -->
+		<constructor-arg ref="Custmysqldao"></constructor-arg>
+	</bean>
+
+	<!-- Controller cfg -->
+	<bean id="controller" class="com.nt.controller.MainController">
+		<constructor-arg ref="service"></constructor-arg>
+	</bean>
+
+	<context:property-placeholder
+		location="com/nt/commons/info.properties" />
 </beans>

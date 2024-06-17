@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns = "http://www.springframework.org/schema/beans"
-   xmlns:context = "http://www.springframework.org/schema/context"
-   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
    http://www.springframework.org/schema/context 
    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-   
-   <!-- Dependent classs -->
-   <bean id="dtdc" class="com.ms.components.Dtdc"></bean>
-   <bean id="fdex" class="com.ms.components.FedEx"></bean>
-   <bean id="bdart" class="com.ms.components.BlueDart"></bean>
-   
-   <!-- Target class -->
-   <bean id="fpkt" class="com.ms.components.Flipkart">
-   <!-- <property name="courier" ref="dtdc"></property> -->
-   <constructor-arg name="courier" ref="fdex"></constructor-arg>
-   </bean>
-   
-   
+	<!-- Dependent classs -->
+	<bean id="dtdc" class="com.ms.components.Dtdc" scope="prototype"></bean>
+	<bean id="bdart" class="com.ms.components.BlueDart" scope="prototype"></bean>
+    <bean id="fdex" class="com.ms.components.FedEx" scope="singleton"></bean>
+	<!-- Target class -->
+	<bean id="fpkt" class="com.ms.components.Flipkart" scope="prototype">
+		<!-- <property name="courier" ref="dtdc"></property> -->
+		<constructor-arg name="courier" ref="fdex"></constructor-arg>
+	</bean>
 </beans>
