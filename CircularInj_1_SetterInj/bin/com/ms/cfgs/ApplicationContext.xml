@@ -12,8 +12,9 @@
    </bean>
    
    
-    <bean id="Aclass" class="com.ms.beans.ABCDD">
+    <bean id="Aclass" class="com.ms.beans.bba">
    <property name="aa" ref="Aclass"></property>
+       <Comp name ="bb" ref ="Bclass"> <Comp>
    </bean>
    
 </beans>
