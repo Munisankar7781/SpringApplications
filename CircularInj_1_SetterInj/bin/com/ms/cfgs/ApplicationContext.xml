@@ -12,7 +12,7 @@
    </bean>
    
    
-    <bean id="Aclass" class="com.ms.beans.A">
+    <bean id="Aclass" class="com.ms.beans.ABCDD">
    <property name="aa" ref="Aclass"></property>
    </bean>
    
