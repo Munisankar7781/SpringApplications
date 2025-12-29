@@ -10,11 +10,11 @@
    <bean id="Aclass" class="com.ms.beans.A">
    <property name="bb" ref="Bclass"></property>
    </bean>
-   
-   
-    <bean id="Aclass" class="com.ms.beans.ABCDD","com.ms.beans.rrr">
+
+    <bean id="Aclass" class="com.ms.beans.bba",com.ms.beans.rrr">
        <property id ="Cc" ref = "Bclass"></property>
    <property name="aa" ref="Aclass"></property>
-   </bean>
+       <Comp name ="bb" ref ="Bclass"> <Comp>
+   </>
    
 </beans>
